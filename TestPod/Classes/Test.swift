@@ -13,7 +13,6 @@ public class Test {
     
     public static func doDbStuff() {
         do {
-            //sqlite3_config_ian(SQLITE_CONFIG_SERIALIZED)
             
             var db :OpaquePointer?
             let dbPath = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)

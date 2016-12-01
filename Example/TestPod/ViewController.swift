@@ -16,6 +16,16 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         Test.doDbStuff()
+        
+        Database.instance().executeSql("CREATE TABLE IF NOT EXISTS Thing (name TEXT)")
+        
+        Database.instance().withStatementFromSql("SELECT name FROM sqlite_master WHERE type ='table'", callback: {statement in
+            while SQLITE_ROW == sqlite3_step(statement) {
+                print("Column index: \(sqlite3_column_count(statement))")
+                let name = SqlHelper.toString(statement, columnName: "name")
+                print("Table: \(name)")
+            }
+        })
     }
 
     override func didReceiveMemoryWarning() {
