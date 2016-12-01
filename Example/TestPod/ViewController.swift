@@ -19,6 +19,7 @@ class ViewController: UIViewController {
         
         Database.instance().executeSql("CREATE TABLE IF NOT EXISTS Thing (name TEXT)")
         
+        Database.instance().printTableNames()
         Database.instance().withStatementFromSql("SELECT name FROM sqlite_master WHERE type ='table'", callback: {statement in
             while SQLITE_ROW == sqlite3_step(statement) {
                 print("Column index: \(sqlite3_column_count(statement))")

@@ -7,6 +7,7 @@
 //
 
 #import "Database.h"
+#import "SqlHelper.h"
 
 @interface Database (Private)
 
@@ -28,6 +29,15 @@ static int DATABASE_VERSION = 1;
         }
     }
     return instance;
+}
+
+- (void) printTableNames {
+    [self withStatementFromSql:@"SELECT name FROM sqlite_master WHERE type ='table'" callback:^(sqlite3_stmt* statement) {
+        while (SQLITE_ROW == sqlite3_step(statement)) {
+            NSString* name = [SqlHelper toString:statement columnName:@"name"];
+            NSLog(@"(Database.printTableNames): %@", name);
+        }
+    }];
 }
 
 - (sqlite3*) database {

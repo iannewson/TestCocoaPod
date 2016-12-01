@@ -33,6 +33,6 @@
 
 - (NSString*) lastErrorMessage;
 
-
+- (void) printTableNames;
 
 @end
