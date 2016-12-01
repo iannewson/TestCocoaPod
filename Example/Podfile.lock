@@ -1,0 +1,21 @@
+PODS:
+  - sqlite3 (3.15.2):
+    - sqlite3/common (= 3.15.2)
+  - sqlite3/common (3.15.2)
+  - TestPod (0.1.0):
+    - sqlite3
+
+DEPENDENCIES:
+  - TestPod (from `../`)
+
+EXTERNAL SOURCES:
+  TestPod:
+    :path: ../
+
+SPEC CHECKSUMS:
+  sqlite3: 85c03fced2fc4df2374c8bee4299ccf0aee381b8
+  TestPod: 388397c5d2501f2a20a82c0de51c8c5bc14107e4
+
+PODFILE CHECKSUM: f5f8e6a008433eb3e15961ed36328c2410b1f5cc
+
+COCOAPODS: 1.2.0.beta.1
